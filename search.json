@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "posts/JosephVincent_Challenge1.html",
+    "href": "posts/JosephVincent_Challenge1.html",
+    "title": "Challenge 1 - Railroad Employees",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)\nlibrary(summarytools)\nlibrary(ggplot2)\n\nknitr::opts_chunk$set(echo = TRUE)"
+  },
+  {
+    "objectID": "posts/JosephVincent_Challenge1.html#reading-in-the-data",
+    "href": "posts/JosephVincent_Challenge1.html#reading-in-the-data",
+    "title": "Challenge 1 - Railroad Employees",
+    "section": "Reading in the data",
+    "text": "Reading in the data\n\nrailroad_2012_clean_county.csv ⭐\n\n\n\nCode\n# loading in dataset and assigning to variable 'railroad'\n# using head to preview the dataset\n\nrailroad <- read_csv(\"_data/railroad_2012_clean_county.csv\")\n\n\nRows: 2930 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): state, county\ndbl (1): total_employees\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nCode\nhead(railroad)\n\n\n# A tibble: 6 × 3\n  state county               total_employees\n  <chr> <chr>                          <dbl>\n1 AE    APO                                2\n2 AK    ANCHORAGE                          7\n3 AK    FAIRBANKS NORTH STAR               2\n4 AK    JUNEAU                             3\n5 AK    MATANUSKA-SUSITNA                  2\n6 AK    SITKA                              1"
+  },
+  {
+    "objectID": "posts/JosephVincent_Challenge1.html#describing-the-dataset",
+    "href": "posts/JosephVincent_Challenge1.html#describing-the-dataset",
+    "title": "Challenge 1 - Railroad Employees",
+    "section": "Describing the dataset",
+    "text": "Describing the dataset\nThis data set consists of 3 columns: State, County and Total Employees. It appears that the data set is showing the number of railroad employees by county in the United States.\nThe least number of railroad employees in a given county is 1, and the greatest number of railroad employees in a given county is over 8,000.\nThere is a mean number of employees per county of about 87, but with a large standard deviation (283).\nI learned that there are 31 counties with the name “Washington” and 26 counties with the name “Jefferson”."
+  },
+  {
+    "objectID": "posts/JosephVincent_Challenge1.html#data-summary",
+    "href": "posts/JosephVincent_Challenge1.html#data-summary",
+    "title": "Challenge 1 - Railroad Employees",
+    "section": "Data summary",
+    "text": "Data summary\n\n\nCode\n# finding the dimensions of 'railroad'\ndim(railroad)\n\n\n[1] 2930    3\n\n\nCode\n# finding the column names of 'railroad'\ncolnames(railroad)\n\n\n[1] \"state\"           \"county\"          \"total_employees\"\n\n\nCode\n#using summary tools\ndfSummary(railroad)\n\n\nData Frame Summary  \nrailroad  \nDimensions: 2930 x 3  \nDuplicates: 0  \n\n-----------------------------------------------------------------------------------------------------------------\nNo   Variable          Stats / Values             Freqs (% of Valid)    Graph                Valid      Missing  \n---- ----------------- -------------------------- --------------------- -------------------- ---------- ---------\n1    state             1. TX                       221 ( 7.5%)          I                    2930       0        \n     [character]       2. GA                       152 ( 5.2%)          I                    (100.0%)   (0.0%)   \n                       3. KY                       119 ( 4.1%)                                                   \n                       4. MO                       115 ( 3.9%)                                                   \n                       5. IL                       103 ( 3.5%)                                                   \n                       6. IA                        99 ( 3.4%)                                                   \n                       7. KS                        95 ( 3.2%)                                                   \n                       8. NC                        94 ( 3.2%)                                                   \n                       9. IN                        92 ( 3.1%)                                                   \n                       10. VA                       92 ( 3.1%)                                                   \n                       [ 43 others ]              1748 (59.7%)          IIIIIIIIIII                              \n\n2    county            1. WASHINGTON                31 ( 1.1%)                               2930       0        \n     [character]       2. JEFFERSON                 26 ( 0.9%)                               (100.0%)   (0.0%)   \n                       3. FRANKLIN                  24 ( 0.8%)                                                   \n                       4. LINCOLN                   24 ( 0.8%)                                                   \n                       5. JACKSON                   22 ( 0.8%)                                                   \n                       6. MADISON                   19 ( 0.6%)                                                   \n                       7. MONTGOMERY                18 ( 0.6%)                                                   \n                       8. CLAY                      17 ( 0.6%)                                                   \n                       9. MARION                    17 ( 0.6%)                                                   \n                       10. MONROE                   17 ( 0.6%)                                                   \n                       [ 1699 others ]            2715 (92.7%)          IIIIIIIIIIIIIIIIII                       \n\n3    total_employees   Mean (sd) : 87.2 (283.6)   404 distinct values   :                    2930       0        \n     [numeric]         min < med < max:                                 :                    (100.0%)   (0.0%)   \n                       1 < 21 < 8207                                    :                                        \n                       IQR (CV) : 58 (3.3)                              :                                        \n                                                                        :                                        \n-----------------------------------------------------------------------------------------------------------------\n\n\nCode\n# practice selecting employees column and calc min/max manually\nemployees <- select(railroad, total_employees)\nhead(employees)\n\n\n# A tibble: 6 × 1\n  total_employees\n            <dbl>\n1               2\n2               7\n3               2\n4               3\n5               2\n6               1\n\n\nCode\nmin(employees)\n\n\n[1] 1\n\n\nCode\nmax(employees)\n\n\n[1] 8207"
+  },
+  {
+    "objectID": "about/JosephVincent.html",
+    "href": "about/JosephVincent.html",
+    "title": "Joseph Vincent",
+    "section": "",
+    "text": "##Instructions"
+  },
+  {
+    "objectID": "about/JosephVincent.html#educationwork-background",
+    "href": "about/JosephVincent.html#educationwork-background",
+    "title": "Joseph Vincent",
+    "section": "Education/Work Background",
+    "text": "Education/Work Background\nI graduated in 2020 with a bachelor’s degree in Marketing and Health & Life Sciences from Boston University. Since then, I have been working for a digital healthcare start-up doing business development for the US."
+  },
+  {
+    "objectID": "about/JosephVincent.html#r-experience",
+    "href": "about/JosephVincent.html#r-experience",
+    "title": "Joseph Vincent",
+    "section": "R experience",
+    "text": "R experience\nI have a little bit of R experience from a machine learning class I took at BU, but I don’t remember much of it."
+  },
+  {
+    "objectID": "about/JosephVincent.html#research-interests",
+    "href": "about/JosephVincent.html#research-interests",
+    "title": "Joseph Vincent",
+    "section": "Research interests",
+    "text": "Research interests\nI am interested in digital healthcare and public health for my work, but also have an unrelated interest in public transit/urban planning."
+  },
+  {
+    "objectID": "about/JosephVincent.html#hometown",
+    "href": "about/JosephVincent.html#hometown",
+    "title": "Joseph Vincent",
+    "section": "Hometown",
+    "text": "Hometown\nI grew up in rural New York State, but have lived in and around Boston for the past 6 years."
+  },
+  {
+    "objectID": "about/JosephVincent.html#hobbies",
+    "href": "about/JosephVincent.html#hobbies",
+    "title": "Joseph Vincent",
+    "section": "Hobbies",
+    "text": "Hobbies\nI like hiking in the Fells Reservation with my dog during the weekends. I play the drums and guitar. Also crosswords, Sudoku puzzles."
+  },
+  {
+    "objectID": "about/JosephVincent.html#fun-fact",
+    "href": "about/JosephVincent.html#fun-fact",
+    "title": "Joseph Vincent",
+    "section": "Fun fact",
+    "text": "Fun fact\nI spent a summer as a gravedigger."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DACSS 601: Data Science Fundamentals Spring-2023",
+    "section": "",
+    "text": "The blog posts here are contributed by students enrolled in DACSS 601, Fundamentals of Data Science. The course provides students with an introduction to R and the tidyverse, scientific publishing, and collaboration through GitHub, building a foundation for future coursework. Students also are introduced to general data management and data wrangling skills, with an emphasis on best practice workflows and tidy data management.\n\n\n\n\n\n\n\n\n\n\nChallenge 1 - Railroad Employees\n\n\n\n\n\n\n\nchallenge_1\n\n\nrailroads\n\n\nJoseph Vincent\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nJoseph Vincent\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Contributors",
+    "section": "",
+    "text": "Find out more about our DACSS students who contributed to the blog.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJoseph Vincent\n\n\n\n\n\n\n\nNo matching items"
+  }
+]
